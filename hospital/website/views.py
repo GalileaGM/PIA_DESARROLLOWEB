@@ -9,11 +9,11 @@ def index(request):
 def departamentos(request):
     return render(request,"departamentos.html")
 
-def medicos(request):
-    return render(request,"medicos.html")
+def doctores(request):
+    return render(request,"doctores.html")
 
 def sucursales(request):
     return render(request,"sucursales.html")
 
-def ambulancias(request):
-    return render(request,"ambulancias.html")
+def servicios(request):
+    return render(request,"servicios.html")
