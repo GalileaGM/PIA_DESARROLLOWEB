@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucursales</title>
+    <link rel="stylesheet" href="{% static 'estilos/EstilosSucursal.css' %}">
+</head>
+<body>
+    <section id="links">
+        <a href="{% url 'index'%}">Inicio</a>
+        <a href="{% url 'doctores'%}">Doctores</a>
+        <a href="{% url 'departamentos'%}">Departamentos</a>
+        <a href="{% url 'servicios'%}">Servicios</a>
+    </section>
+
+    <h1>Nuestras Sucursales</h1>
+
+    {% for Sucursales in Sucursales %}
+    <section id="nombre">
+        <h2></h2>
+        <p>{{Sucursales.NombreSucursal}}</p>
+    </section>
+
+    <section id ="contenedor">
+        <section id="mp1">
+            <h2>Ubicacion</h2>
+            <p>{{Sucursales.Direccion}}</p>
+        </section>
+
+        <section id="mp1">
+            <h2>Horario</h2>
+            <p>{{Sucursales.HorarioAbierto}} a {{Sucursales.HorarioCerrado}}</p>
+        </section>
+
+        <section id="mp1">
+            <h2>Contactos</h2>
+            <p>{{Sucursales.Telefono}}</p>
+            <p>{{Sucursales.Correo}}</p>
+        </section>
+    </section>
+    {% endfor %}
+</body>
+</html>

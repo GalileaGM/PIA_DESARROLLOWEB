@@ -10,3 +10,11 @@ class Doctor(models.Model):
 
     def __str__(self):#es para cambiar el nombre y que aparezca en la pantalla
         return self.nombre
+
+class Sucursales(models.Model):
+    NombreSucursal = models.CharField(max_length=70) #caracter
+    Direccion = models.CharField(max_length=80)
+    HorarioAbierto = models.TimeField()
+    HorarioCerrado = models.TimeField()
+    Telefono = models.IntegerField()
+    Correo = models.CharField(max_length=70)
