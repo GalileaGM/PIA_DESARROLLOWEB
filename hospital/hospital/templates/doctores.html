@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'estilos/style.css' %}">
+    <title>Detalles del Doctor</title>
+</head>
+<body>
+    <header>
+        <h1>Nuestros doctores</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'doctores' %}">Doctores</a></li>
+            <li><a href="{% url 'departamentos' %}">Departamentos</a></li>
+            <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+        </ul>
+    </nav>
+
+    {% for Doctor in Doctor %}
+    <section class="Doctor">
+        <img src="{%static 'img/doc.png'%}" alt="{{ Doctor.nombre }}">
+
+        <div class="Doctor">
+            <h2>{{ Doctor.nombre }}</h2>
+            <p>Dirección: {{ Doctor.direccion }}</p>
+            <p>Peso: {{ Doctor.peso }} kg</p>
+            <p>Edad: {{ Doctor.edad }} años</p>
+            <p>Fecha de Cumpleaños: {{ Doctor.fechacumple }}</p>
+        </div>
+    </section>
+    {% endfor %}
+
+    <footer>
+        <p>&copy; 2023 Tu Clínica</p>
+    </footer>
+</body>
+</html>
