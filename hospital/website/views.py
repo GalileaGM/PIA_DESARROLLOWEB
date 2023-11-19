@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Sucursales
+from .models import Doctores
+
 # Create your views here.
 
 def index(request):
@@ -11,7 +13,11 @@ def departamentos(request):
     return render(request,"departamentos.html")
 
 def doctores(request):
-    return render(request,"doctores.html")
+    data = Doctores.objects.all()
+    info = {
+        "Doctores" : data
+    }
+    return render(request,"doctores.html",  context=info)
 
 def sucursales(request):
     data = Sucursales.objects.all()

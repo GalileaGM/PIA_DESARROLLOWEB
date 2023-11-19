@@ -21,22 +21,24 @@
         </ul>
     </nav>
 
-    {% for Doctor in Doctor %}
-    <section class="Doctor">
-        <img src="{%static 'img/doc.png'%}" alt="{{ Doctor.nombre }}">
+    {% for Doctores in Doctores %}
+    <section class="Doctores">
 
-        <div class="Doctor">
-            <h2>{{ Doctor.nombre }}</h2>
-            <p>Dirección: {{ Doctor.direccion }}</p>
-            <p>Peso: {{ Doctor.peso }} kg</p>
-            <p>Edad: {{ Doctor.edad }} años</p>
-            <p>Fecha de Cumpleaños: {{ Doctor.fechacumple }}</p>
+        <section class="doctor-section">
+            <img src="{% static 'img/doc.png' %}" alt="{{ doctor.nombre }}">
+
+        <div class="Doctores">
+            <h2>{{ Doctores.nombre }}</h2>
+            <p>Dirección: {{ Doctores.direccion }}</p>
+            <p>Peso: {{ Doctores.peso }} kg</p>
+            <p>Edad: {{ Doctores.edad }} años</p>
+            <p>Fecha de Cumpleaños: {{ Doctores.fechacumple }}</p>
         </div>
     </section>
     {% endfor %}
 
     <footer>
-        <p>&copy; 2023 Tu Clínica</p>
+        <p>&copy; 2023 Clínica PIA AES UANL</p>
     </footer>
 </body>
 </html>
