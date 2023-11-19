@@ -8,37 +8,59 @@
     <link rel="stylesheet" href="{% static 'estilos/EstilosSucursal.css' %}">
 </head>
 <body>
-    <section id="links">
-        <a href="{% url 'index'%}">Inicio</a>
-        <a href="{% url 'doctores'%}">Doctores</a>
-        <a href="{% url 'departamentos'%}">Departamentos</a>
-        <a href="{% url 'servicios'%}">Servicios</a>
-    </section>
-    <h1>Nuestras Sucursales</h1>
 
-    {% for Sucursales in Sucursales %}
-    <section id="nombre">
-        <h2></h2>
-        <p>{{Sucursales.NombreSucursal}}</p>
-    </section>
+    <header>
+        <h1>Nuestras Sucursales</h1>
+    </header>
 
-    <section id ="contenedor">
-        <section id="mp1">
-            <h2>Ubicacion</h2>
-            <p>{{Sucursales.Direccion}}</p>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'doctores' %}">Doctores</a></li>
+            <li><a href="{% url 'departamentos' %}">Departamentos</a></li>
+            <li><a href="{% url 'servicios' %}">Servicios</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        {% for Sucursales in Sucursales %}
+        <section id="nombre">
+            <p>{{Sucursales.NombreSucursal}}</p>
         </section>
 
-        <section id="mp1">
-            <h2>Horario</h2>
-            <p>{{Sucursales.HorarioAbierto}} a {{Sucursales.HorarioCerrado}}</p>
-        </section>
+        <section id ="contenedor">
+            <section id="mp1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+                <h2>Ubicacion</h2>
+                <p>{{Sucursales.Direccion}}</p>
+            </section>
 
-        <section id="mp1">
-            <h2>Contactos</h2>
-            <p>{{Sucursales.Telefono}}</p>
-            <p>{{Sucursales.Correo}}</p>
+            <section id="mp1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                </svg>
+                <h2>Horario</h2>
+                <p>{{Sucursales.HorarioAbierto}} a {{Sucursales.HorarioCerrado}}</p>
+            </section>
+
+            <section id="mp1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg>
+                <h2>Contactos</h2>
+                <p>{{Sucursales.Telefono}}</p>
+                <p>{{Sucursales.Correo}}</p>
+            </section>
         </section>
-    </section>
-    {% endfor %}
+        {% endfor %}
+    </article>
+
+    <footer>
+        <p> 2023 Clínica PIA AES UANL  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hospital" viewBox="0 0 16 16">
+            <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1ZM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5Zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9h-.5Zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Z"/>
+            <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1V1Zm2 14h2v-3H7v3Zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm0-14H6v1h4V1Zm2 7v7h3V8h-3Zm-8 7V8H1v7h3Z"/></p>
+    </footer>
 </body>
 </html>
